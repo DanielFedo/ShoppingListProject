@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/menu_signout"
+        android:icon="@android:drawable/ic_lock_idle_low_battery"
+        android:title="Sign-out" />
+
+    <item android:id="@+id/menu_change_password"
+        android:icon="@android:drawable/ic_lock_idle_low_battery"
+        android:title="Change Password" />
+
+</menu>
