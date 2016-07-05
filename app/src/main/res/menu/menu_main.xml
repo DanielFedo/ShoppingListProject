@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
+    <item android:id="@+id/menu_profile"
+        android:icon="@android:drawable/ic_lock_idle_low_battery"
+        android:title="Profile" />
+
     <item android:id="@+id/menu_signout"
         android:icon="@android:drawable/ic_lock_idle_low_battery"
         android:title="Sign-out" />

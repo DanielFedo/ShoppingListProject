@@ -1,4 +1,4 @@
-package daniel.shoppinglist;
+package daniel.shoppinglist.utils;
 
 /**
  * Created by Daniel on 27/06/2016.
@@ -13,7 +13,7 @@ public class Utils {
     }
 
     public final static boolean isValidPassword(CharSequence target){
-        if (target == null || target.length() < 3)
+        if (target == null || target.length() < 6)
             return false;
 
         return true;

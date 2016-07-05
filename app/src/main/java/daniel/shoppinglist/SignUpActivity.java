@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -14,11 +15,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import daniel.shoppinglist.utils.Utils;
+
 public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText emailText;
     private EditText passwordText;
+    private Button signUp;
+    private Button login;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +34,12 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         emailText = ((EditText)findViewById(R.id.email));
-        passwordText = ((EditText)findViewById(R.id.password));
+        passwordText = ((EditText)findViewById(R.id.listName));
 
+        signUp = (Button) findViewById(R.id.regBtn);
+        login = (Button) findViewById(R.id.logBtn);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
 
     public void signup(View view) {
@@ -50,6 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
+        disableButtons();
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -64,9 +75,10 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(SignUpActivity.this, "Sign-up completed!",
                             Toast.LENGTH_SHORT).show();
+                    returnToMainActivity();
                 }
 
-                returnToMainActivity();
+                enableButtons();
             }
         });
     }
@@ -78,6 +90,7 @@ public class SignUpActivity extends AppCompatActivity {
         email = emailText.getText().toString();
         password = passwordText.getText().toString();
 
+        disableButtons();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
 
             @Override
@@ -96,17 +109,26 @@ public class SignUpActivity extends AppCompatActivity {
 
                     returnToMainActivity();
                 }
+
+                enableButtons();
             }
         });
     }
 
-    public void returnToMainActivity(){
-        super.onBackPressed();
+    private void disableButtons(){
+        this.signUp.setEnabled(false);
+        this.login.setEnabled(false);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
+    private void enableButtons(){
+        this.signUp.setEnabled(true);
+        this.login.setEnabled(true);
+        progressBar.setVisibility(View.INVISIBLE);
+    }
 
-
-
-
+    private void returnToMainActivity(){
+        super.onBackPressed();
+    }
 
 }

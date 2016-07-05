@@ -31,11 +31,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/password"
+        android:id="@+id/listName"
         android:enabled="true"
         android:hint="Password"
         android:layout_below="@+id/email"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="10dp"
         android:layout_alignRight="@+id/email"
         android:layout_alignEnd="@+id/email"
         android:layout_alignParentLeft="true"
@@ -52,10 +52,11 @@
         android:layout_below="@+id/logBtn"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/holo_blue_light" />
 
     <Button
         android:layout_width="wrap_content"
@@ -64,13 +65,14 @@
         android:id="@+id/logBtn"
         android:clickable="true"
         android:onClick="login"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/listName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="39dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/holo_blue_dark" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,5 +83,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

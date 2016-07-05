@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/productName"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quantity"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="count"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/deleteBtn"
+        android:layout_toStartOf="@+id/deleteBtn"
+        android:layout_marginRight="10dp"
+        android:lines = "1"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:text="X"
+        android:id="@+id/deleteBtn"
+        android:textSize="10dp"
+        android:background="@android:color/holo_red_light"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
